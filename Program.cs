@@ -109,13 +109,29 @@ namespace Dia7Delegados
             }
             Console.ReadKey();
             Console.WriteLine($"-----------------------------------" + "\n" + "-------------Ejercio 7-------------");
-            var ejem7 = proys.Where(x => x.Duracion > 6 ).ToList();
-            foreach (var item in ejem7)
-            {
-                Console.WriteLine($"Nombre:  {item.Nombre}\nArea: {item.Area}");
-            }
+            var ejem7 = proys.Where(x => x.Duracion > 6).Select(x =>
+           new Proyecto(){
+               Nombre = x.Nombre,
+               Area = x.Area
+            }).ToList();
+            pro.Imprimir2(ejem7);
+            //foreach (var item in ejem7)
+            //{
+            //    Console.WriteLine($"Nombre:  {item.Nombre}\nArea: {item.Area}");
+            //}
             Console.ReadKey();
             Console.WriteLine($"-----------------------------------" + "\n" + "-------------Ejercio 8-------------");
+            var ejem8 = proys.Any(x => x.Duracion > 24);
+            Console.WriteLine($"¿Existe un proyecto con una duracion mayor a 24?\n Respuesta: {ejem8}");
+            Console.ReadKey();
+            Console.WriteLine($"-----------------------------------" + "\n" + "-------------Ejercio 9-------------");
+            var ejem9 = proys.Where(x => x.Codigo > 20).Sum(x => x.Duracion);
+            Console.WriteLine($"La suma de la duracion cuyo codigo fuese mayor a 20 es: {ejem9}");
+            Console.ReadKey();
+            Console.WriteLine($"-----------------------------------" + "\n" + "-------------Ejercio 10-------------");
+            var ejem10 = proys.TakeWhile(x => x.Codigo > 30).ToList();
+            var ejem101 = ejem10.Where(x => x.Codigo > 30).Skip(2).Take(2).ToList();
+            pro.Imprimir2(ejem101);
         }
 
         public static double CalcularRaiz(double bas,double exp)

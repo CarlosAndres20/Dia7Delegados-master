@@ -150,10 +150,27 @@ namespace Dia7Delegados
 
             foreach (var item in proyectos)
             {
-                Console.WriteLine($"Nombre: {item.Nombre}");
-                Console.WriteLine($"Codigo: {item.Codigo}");
-                Console.WriteLine($"Area: {item.Area}");
-                Console.WriteLine($"Duracion: {item.Duracion}");
+
+                //Console.WriteLine($"Nombre: {item.Nombre}");
+                //Console.WriteLine($"Codigo: {item.Codigo}");
+                //Console.WriteLine($"Area: {item.Area}");
+                //Console.WriteLine($"Duracion: {item.Duracion}");
+                if (item.Nombre != null)
+                {
+                    Console.WriteLine($"Nombre: {item.Nombre}");
+                }
+                if (item.Codigo != 0)
+                {
+                    Console.WriteLine($"Codigo: {item.Codigo}");
+                }
+                if (item.Area != null)
+                {
+                    Console.WriteLine($"Area: {item.Area}");
+                }
+                if (item.Duracion != 0)
+                {
+                    Console.WriteLine($"Duracion: {item.Duracion}");
+                }
             }
 
         }
